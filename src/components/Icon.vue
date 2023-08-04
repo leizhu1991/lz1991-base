@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import InlineSvg from 'vue-inline-svg';
 
-interface IconProps {
+export interface IconProps {
   src: string,
   width: number,
   height: number,

@@ -4,7 +4,7 @@ import Icon from './Icon.vue';
 import iconClose from '../assets/icon/Close.svg';
 
 const meta = {
-  title: 'Example/Icon',
+  title: 'LZ1991-Base/Icon',
   component: Icon,
   tags: ['autodocs'],
 } satisfies Meta<typeof Icon>;

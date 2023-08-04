@@ -19,22 +19,19 @@
 import { computed, useAttrs } from 'vue';
 import Icon from './Icon.vue';
 
-interface IconProps {
+export interface IconProps {
   icon: string,
   iconSize: number,
-  iconColor?: string,
+  iconColor: string,
   padding: number,
-  borderColor: string,
-  backgroundColor: string,
   disabled: boolean,
 }
 
 const attrs = useAttrs();
 const props = withDefaults(defineProps<IconProps>(), {
   iconSize: 20,
+  iconColor: '#212529', // text-default
   padding: 5,
-  borderColor: '#DEDEDE',
-  backgroundColor: '#F6F6F6',
   disabled: false,
 });
 
@@ -47,8 +44,6 @@ const classes = computed(() => ({
 const style = computed(() => ({
   width: `${props.iconSize + props.padding * 2}px`,
   height: `${props.iconSize + props.padding * 2}px`,
-  borderColor: props.borderColor,
-  backgroundColor: props.backgroundColor,
 }));
 
 </script>
@@ -57,13 +52,23 @@ const style = computed(() => ({
 .icon-button {
   display: inline-flex;
   border-radius: 4px;
-  border-width: 1px;
-  border-style: solid;
+  transition: background-color 250ms ease-in 0s;
   &__icon {
     margin: auto;
   }
-  &[flat] {
+  &[theme="white"] {
+    border: 1px solid $gray-2;
+    background-color: $white;
+    &:hover {
+      background-color: $white-3;
+    }
+  }
+  &[theme="grey"] {
     border: none;
+    background-color: $white-3;
+    &:hover {
+      background-color: $white-2;
+    }
   }
 }
 </style>

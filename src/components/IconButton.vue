@@ -3,7 +3,6 @@
     class="icon-button"
     :class="classes"
     :style="style"
-    v-bind="attrs"
   >
     <Icon
       class="icon-button__icon"
@@ -16,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useAttrs } from 'vue';
+import { computed } from 'vue';
 import Icon from './Icon.vue';
 
 export interface IconProps {
@@ -27,7 +26,6 @@ export interface IconProps {
   disabled: boolean,
 }
 
-const attrs = useAttrs();
 const props = withDefaults(defineProps<IconProps>(), {
   iconSize: 20,
   iconColor: '#212529', // text-default
@@ -56,14 +54,14 @@ const style = computed(() => ({
   &__icon {
     margin: auto;
   }
-  &[theme="white"] {
+  &[colour="white"] {
     border: 1px solid $gray-2;
     background-color: $white;
     &:hover {
       background-color: $white-3;
     }
   }
-  &[theme="grey"] {
+  &[colour="grey"] {
     border: none;
     background-color: $white-3;
     &:hover {

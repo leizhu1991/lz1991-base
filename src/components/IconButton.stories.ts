@@ -7,6 +7,12 @@ const meta = {
   title: 'LZ1991-Base/IconButton',
   component: IconButton,
   tags: ['autodocs'],
+  argTypes: {
+    colour: {
+      control: 'select',
+      options: ['default', 'white', 'grey'],
+    },
+  },
 } satisfies Meta<typeof IconButton>;
 
 export default meta;
@@ -15,19 +21,6 @@ type Story = StoryObj<typeof meta>;
 export const IconButtonDefault: Story = {
   args: {
     icon: iconClose,
-  },
-};
-
-export const IconButtonWhite: Story = {
-  args: {
-    icon: iconClose,
-    theme: 'white',
-  },
-};
-
-export const IconButtonGrey: Story = {
-  args: {
-    icon: iconClose,
-    theme: 'grey',
+    colour: 'default',
   },
 };
